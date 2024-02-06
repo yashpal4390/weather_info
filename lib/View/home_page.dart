@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         leading: Icon(Icons.menu),
         actions: [Icon(Icons.location_on_sharp)],
-        title: Text("Weather's Information"),
+        title: Text(loc),
         centerTitle: true,
       ),
       body: FutureBuilder(
@@ -81,8 +81,8 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Text(
                               formattedDate,
-                              style:
-                                  TextStyle(fontSize: 20, color: Colors.tealAccent),
+                              style: TextStyle(
+                                  fontSize: 20, color: Colors.tealAccent),
                             ),
                             Spacer(),
                             Text(formattedTimeString,
@@ -127,11 +127,24 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ],
                         ),
-                        Text("Hello"),
+                        Text(
+                          "${data.location!.name} ,${data.location!.region}, ${data.location!.country}",
+                          style: TextStyle(
+                            fontSize: _height * 0.025,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white,
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                )
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Weather Details"),
+                  ],
+                ),
               ],
             );
           } else {
