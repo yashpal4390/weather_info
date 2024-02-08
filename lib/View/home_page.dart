@@ -80,23 +80,30 @@ class _HomePageState extends State<HomePage> {
                     margin: EdgeInsets.all(8),
                     padding: EdgeInsets.symmetric(horizontal: 16.0),
                     child: TextFormField(
-                      onChanged: (value) async{
+                      controller: sp.tController,
+                      onChanged: (value) async {
                         String baseUrl =
                             "https://api.weatherapi.com/v1/forecast.json?key=e09f03988e1048d2966132426232205&q=";
                         String endUrl = "$value&aqi=no";
                         String api = baseUrl + endUrl;
                         http.Response res = await http.get(Uri.parse(api));
-                        if (res.statusCode == 200){
+                        if (res.statusCode == 200) {
                           sp.loc = value;
                           prefs.setString("City", value);
-                        }
-                        else{
+                        } else {
                           print("NO DATA FOUND");
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: Text("Please Enter Valid Country"),
+                            duration: Duration(seconds: 2),
+                            // Adjust the duration as needed
+                            backgroundColor: Colors.green,
+                            behavior: SnackBarBehavior.floating,
+                          ));
+                          sp.clear();
+                          Navigator.pop(context);
                         }
                       },
-                      onSaved: (value)async{
-
-                      },
+                      onSaved: (value) async {},
                       decoration: InputDecoration(
                         labelText: 'Enter City',
                         border: OutlineInputBorder(),

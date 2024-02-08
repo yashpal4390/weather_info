@@ -4,7 +4,11 @@ import '../../main.dart';
 
 class SearchProvider extends ChangeNotifier {
   String? loc;
-
+  TextEditingController tController=TextEditingController();
+  void clear(){
+    tController.clear();
+    notifyListeners();
+  }
   Future<void> fetchDataFromPrefs() async {
     String? storedLoc = prefs.getString('City');
     if (storedLoc != null) {
