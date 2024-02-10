@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unnecessary_brace_in_string_interps
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unnecessary_brace_in_string_interps, avoid_print
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
@@ -92,18 +92,17 @@ class _HomePageState extends State<HomePage> {
                           prefs.setString("City", value);
                         } else {
                           print("NO DATA FOUND");
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            content: Text("Please Enter Valid Country"),
-                            duration: Duration(seconds: 2),
-                            // Adjust the duration as needed
-                            backgroundColor: Colors.green,
-                            behavior: SnackBarBehavior.floating,
-                          ));
-                          sp.clear();
-                          Navigator.pop(context);
+                          // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          //   content: Text("Please Enter Valid Country"),
+                          //   duration: Duration(seconds: 2),
+                          //   // Adjust the duration as needed
+                          //   backgroundColor: Colors.green,
+                          //   behavior: SnackBarBehavior.floating,
+                          // ));
+                          // sp.clear();
                         }
                       },
-                      onSaved: (value) async {},
+                      onFieldSubmitted: (value) async {},
                       decoration: InputDecoration(
                         labelText: 'Enter City',
                         border: OutlineInputBorder(),
