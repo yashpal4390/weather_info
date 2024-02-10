@@ -36,6 +36,7 @@
 - Presentation and demonstration of the application to a panel of reviewers.
 - MVC project architecture
 # Screen Shorts (ss):
+![Untitled design (3)](https://github.com/yashpal4390/weather_info/assets/138545274/75b5022d-c931-4ebf-840a-7623558d2ca5)
 
 # Screen Recoreding :
 https://drive.google.com/file/d/1aUd3I6b9XMKokjzs4wjpsvccuRDwC7Vj/view?usp=sharing
